@@ -1,0 +1,32 @@
+# Render Blueprint - deploys the FastAPI backend as a web service.
+# Use: Render dashboard -> Blueprints -> New Blueprint -> select this repo.
+# After the service is created, add your GROQ_API_KEY in
+# Dashboard -> your service -> Environment. Get one at console.groq.com/keys.
+services:
+  - type: web
+    name: basic-rag-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.2
+      - key: GROQ_API_KEY
+        sync: false # set it manually in the dashboard (never commit secrets)
+      - key: OPENAI_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: EMBEDDING_MODEL
+        value: nomic-embed-text-v1_5
+      - key: CHAT_MODEL
+        value: llama-3.3-70b-versatile
+      - key: CHUNK_SIZE
+        value: "500"
+      - key: CHUNK_OVERLAP
+        value: "50"
+      - key: TOP_K
+        value: "4"
+      - key: CORS_ORIGINS
+        value: "*"
