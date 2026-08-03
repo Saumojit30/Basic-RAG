@@ -1,0 +1,29 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+exclude = [
+  "frontend",
+  "node_modules",
+  "build",
+  "dist",
+  "*.pyc",
+  "__pycache__",
+]
+select = [
+  "E",
+  "F",
+  "I",
+  "N",
+  "Q",
+  "RUF",
+  "C",
+  "TC",
+  "UP",
+]
+ignore = [
+  "E501",
+]
+per-file-ignores = {
+  "backend/tests/*.py" = ["D100", "D101", "D102", "S101"],
+  "streamlit_app/*.py" = ["D100", "D101", "D102", "S101"],
+}
