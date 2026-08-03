@@ -3,6 +3,11 @@
   "rules": {
     "at-rule-no-unknown": [true, {
       "ignoreAtRules": ["import", "layer", "tailwind", "responsive", "variants"]
+    }],
+    "no-descending-specificity": null,
+    "media-feature-range-notation": "prefix",
+    "rule-empty-line-before": ["always-multi-line", {
+      "ignore": ["after-comment", "first-nested"]
     }]
   }
 }

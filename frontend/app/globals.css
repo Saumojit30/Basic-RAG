@@ -114,13 +114,13 @@ button {
   transition: background 0.15s;
 }
 
-button:hover:not(:disabled) {
-  background: #7ba0ff;
-}
-
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background: #7ba0ff;
 }
 
 button.secondary {
@@ -320,6 +320,7 @@ input[type="file"] {
   .app {
     flex-direction: column;
   }
+
   aside {
     width: 100%;
   }
